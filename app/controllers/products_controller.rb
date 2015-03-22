@@ -5,7 +5,14 @@ class ProductsController < ApplicationController
   end
   
   def currency (amount)
-  sprintf("$%.2f",amount)
-end
+    sprintf("$%.2f",amount)
+  end
+  
+  def show
+    
+    @product = Product.find (params[:id])         
+          
+  end
+
 end
  
