@@ -4,7 +4,11 @@
       <li><%= link_to product.name, product%></li>
       <li><%= product.price.to_f%></li>
       <li><%= product.description%></li>
+      <br>
+      <li><%= number_to_currency product.price%></li>
+      <br>
      
     <%end%>
   </ul>
-
+ 
+<!--product_path(id:product.id)-->

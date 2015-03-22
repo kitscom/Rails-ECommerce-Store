@@ -13,6 +13,11 @@ class ProductsController < ApplicationController
     @product = Product.find (params[:id])         
           
   end
+  
+  def new
+   # render text: "for testing purposes"
+   @product = Product.new
+  end
 
 end
  

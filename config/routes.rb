@@ -1,9 +1,22 @@
 Rails.application.routes.draw do
   
+  
+  #READ
+  #
   #GET/ Loads the index action of the products controller
   root 'products#index'
+   
+  get "products" => "products#index" 
   
   get "products/:id" => "products#show", constraints:{id:/\d+/}, as: "product"
+  
+  #CREATE
+  #A route to display a new product form
+  
+  get "products/new" => "products#new", as: "new_product"
+  
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
