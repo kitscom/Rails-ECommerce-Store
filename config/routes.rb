@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  #GET/ Loads the index action of the products controller
+  root 'products#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
