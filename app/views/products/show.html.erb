@@ -1,4 +1,15 @@
-<p>
+
+<h2><%= @product.name%></h2>
+
+<p>  
+  <%= @product.price%>
   <%= @product.description%>
-   <%= link_to 'Home', root_path%>
 </p>
+
+<p>   
+  <%= link_to 'Home', root_path%>
+</p>
+
+<p><%= link_to "Edit This Product", edit_product_path(@product) %></p>
+
+<p><%= link_to "Delete This Product", @product, method:"delete" %></p>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  #resources :products
+  #root to: "products#index"
   
   #READ
   #
@@ -13,7 +15,17 @@ Rails.application.routes.draw do
   #CREATE
   #A route to display a new product form
   
-  get "products/new" => "products#new", as: "new_product"
+  get "products/new" => "products#new", as: "new_product" 
+  post "products" => "products#create", as: "create-product"
+  
+  
+  #UPDATE
+  get "products/:id/edit" => "products#edit", as: "edit_product", id:/\d+/
+  patch "product/:id" =>"products#update"
+  
+  #DELETE
+  
+  delete "products/:id" => "products#destroy",as: "delete_product", id:/\d+/
   
   
   

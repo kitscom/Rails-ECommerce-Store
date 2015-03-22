@@ -1,4 +1,4 @@
-<h1>Create new product</h1>
+<h1>Edit new product</h1>
 <!--form builder -->
   <%= form_for @product do |f| %>
     <% if @product.errors.any? %>
@@ -28,6 +28,6 @@
       <%= f.text_area :description %>
     </div>
     <div>
-      <%= f.submit "Create New Product"%>
+      <%= f.submit "Edit Product"%>
     </div>
   <% end %>
