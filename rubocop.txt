@@ -1,0 +1,25 @@
+Install Rubocop by adding it to your Gemfile:
+
+gem 'rubocop'
+And running:
+
+bundle install
+Then place this rubocop.yml file in your project folder:
+
+AllCops:
+  Exclude:
+    - db/**/*
+    - config/**/*
+    - script/**/*
+    - bin/**/*
+    - test/**/*
+    - app/admin/**/*
+
+Encoding:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+Then from the command line in your project root:
+
+rubocop -R -c rubocop.yml

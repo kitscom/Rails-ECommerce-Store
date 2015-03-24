@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
   
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  get 'resumes/index'
+
+  get 'resumes/new'
+
+  get 'resumes/create'
+
+  get 'resumes/destroy'
+
   #resources :products
   #root to: "products#index"
   
@@ -21,7 +31,7 @@ Rails.application.routes.draw do
   
   #UPDATE
   get "products/:id/edit" => "products#edit", as: "edit_product", id:/\d+/
-  patch "product/:id" =>"products#update"
+  patch "products/:id" =>"products#update"
   
   #DELETE
   
