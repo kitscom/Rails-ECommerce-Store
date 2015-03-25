@@ -6,6 +6,8 @@ AllCops:
     - bin/**/*
     - test/**/*
     - app/admin/**/*
+    - app/uploaders/**/*
+    - Gemfile
 
 Encoding:
   Enabled: false
