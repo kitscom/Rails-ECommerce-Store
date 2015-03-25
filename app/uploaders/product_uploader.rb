@@ -2,13 +2,14 @@
 
 class ProductUploader < CarrierWave::Uploader::Base
 
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+   #Include RMagick or MiniMagick support:
+   #include CarrierWave::RMagick
    include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
+  
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -25,8 +26,9 @@ class ProductUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
-   process :scale => [200, 300]
+   #process :scale => [200, 300] is an error right now
   #
+   
    def scale(width, height)
      process :resize_to_fit[width, height]
    end
