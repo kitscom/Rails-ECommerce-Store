@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20150326142213) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "city"
-    t.string   "province"
+   
     t.integer  "province_id"
   end
 
