@@ -16,22 +16,6 @@ Rails.application.routes.draw do
   
   get "products/:id" => "products#show", constraints:{id:/\d+/}, as: "product"
   
-  #CREATE
-  #A route to display a new product form
-  
-  get "products/new" => "products#new", as: "new_product" 
-  post "products" => "products#create", as: "create-product"
-  
-  
-  #UPDATE
-  get "products/:id/edit" => "products#edit", as: "edit_product", id:/\d+/
-  patch "products/:id" =>"products#update"
-  
-  #DELETE
-  
-  delete "products/:id" => "products#destroy",as: "delete_product", id:/\d+/
-  
-  
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
