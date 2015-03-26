@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150324200706) do
+ActiveRecord::Schema.define(version: 20150326142213) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -62,8 +62,11 @@ ActiveRecord::Schema.define(version: 20150324200706) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.string   "city"
-   
+    t.string   "province"
+    t.integer  "province_id"
   end
+
+  add_index "customers", ["province_id"], name: "index_customers_on_province_id"
 
   create_table "line_items", force: :cascade do |t|
     t.integer  "quantity"
@@ -101,8 +104,14 @@ ActiveRecord::Schema.define(version: 20150324200706) do
     t.decimal  "hst"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal  "qst"
   end
 
-  
+  create_table "resumes", force: :cascade do |t|
+    t.string   "name"
+    t.string   "attachment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end
