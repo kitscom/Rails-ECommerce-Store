@@ -1,3 +1,18 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+$my_shade_of_gray:#bbb;
+#container {
+    width :800px;
+    border: 5px solid black;
+    margin :5px auto;
+    padding: 1em;
+    
+    header{
+        background: $my_shade_of_gray;
+        border:2px solid orange;
+        
+    }
+}
