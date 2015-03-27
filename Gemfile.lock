@@ -242,6 +242,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   mini_magick
   rails (= 4.2.0)
   rubocop
