@@ -1,12 +1,13 @@
 <div class = "product">
   <h2><%= link_to product.name, product%></h2>
 
-  <p>  
-    <%= number_to_currency product.price%>
-   
-    <%= product.description%>
-    <%= image_tag product.image.small.url%>
+  <p>    
+    <%=image_tag product.image.medium.url%>
   </p>
-
+  
+  <p><%= product.description%></p>
+   <p><%= number_to_currency product.price%></p> 
+ 
+ 
  
 </div>
