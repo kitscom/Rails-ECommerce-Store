@@ -1,11 +1,14 @@
 <div class = "product">
   <h2><%= link_to product.name, product%></h2>
 
-  <p>    
-    <%=image_tag product.image.medium.url%>
-  </p>
+ 
+    <% if product.image.present? %>
+      <p><%=image_tag product.image.medium.url%>
+      </p>
+      <p id = 'description'><%= product.description%></p>
+    <% end %>
   
-  <p><%= product.description%></p>
+ 
    <p><%= number_to_currency product.price%></p> 
  
  

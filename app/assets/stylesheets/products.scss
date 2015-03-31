@@ -3,16 +3,77 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-$my_shade_of_gray:#bbb;
+$my_shade_of_gray:#e6e6e6;
 #container {
-    width :800px;
-    border: 5px solid black;
+    width :90%;
+   /* border: 5px solid black;*/
     margin :5px auto;
     padding: 1em;
     
     header{
         background: $my_shade_of_gray;
         border:2px solid orange;
+        border:.2em solid black;
+        margin:.1em auto;
+        
+        
+        h1{
+            width:40%;           
+            margin:.1em auto;            
+            color: purple;            
+            font:bold 3.2em arial, serif;
+        }
+        
+        nav{
+            width:80%;
+            border:1px solid black;
+            margin:.1em auto;   
+        }
+        ul{
+            display:inline;
+        }
+        li{
+            display:inline;
+            text-decoration: none;
+            margin:1em;
+            padding:.2em;
+        }
+        a{
+            color:#333333;
+            text-decoration: none;
+        }
+        a:hover{
+            color:purple;           
+            transition:.45s;
+        }
+    }
+    
+    .product{
+        border-bottom: 1px solid black;
+        background: #F0F0F0;
+        h2{
+            margin-top:2.2em;
+            color:red;
+            font:bold 3em;
+        }
+        #description{
+            border:2px solid red;
+            width:70%;
+            background: #Fff;
+            
+            float:right;
+            margin-top:-180px;
+            margin-right:80px;
+            font:20px calibri;
+            /*display:inline;*/
+        }
+        img{
+            /*margin:.2em;*/
+            border:1px solid black;
+        }
+        p{
+            margin:.2em;
+        }
         
     }
 }
