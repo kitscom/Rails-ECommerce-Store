@@ -12,8 +12,8 @@ class ProductsController < ApplicationController
   def category
     @page_title = 'Product By Category'
     @products = Product.category(params[:id])
-    #@products = Product.where("category_id="+params[:id])
   end
+
   private
 
   def product_params
