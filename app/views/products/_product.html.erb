@@ -2,11 +2,16 @@
   
   <h2><%= link_to product.name, product%></h2>
   
-    <% if product.image.present? %>
-      <p><%=link_to (image_tag product.image.medium.url), product%></p>
-      <p class = 'description'><%= product.description%></p>
-    <% end %>  
- 
-   <p class = 'price'><%= number_to_currency product.price%></p>  
+  <% if product.image.present? %>      
+    <p><%=link_to (image_tag product.image.medium.url), product%></p>     
+  <% end %>
+  
+  <% if product.description.present? %>
+    <p class = 'description'><%= product.description%></p>
+  <% end %>
+
+  <% if product.price.present? %>
+     <p class = 'price'><%= number_to_currency product.price%></p>  
+  <% end %>  
  
 </div>
