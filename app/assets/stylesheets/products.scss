@@ -14,7 +14,8 @@ $my_shade_of_gray:#e6e6e6;
         background: $my_shade_of_gray;
         border:2px solid orange;
         border:.2em solid black;
-        margin:.1em auto;
+        margin:.3em auto;
+         box-shadow: .1em .1em .4em #000000, -.1em -.1em .3em #000000;
         
         
         h1{
@@ -22,6 +23,7 @@ $my_shade_of_gray:#e6e6e6;
             margin:.1em auto;            
             color: purple;            
             font:bold 3.2em arial, serif;
+            text-shadow:1px 1px 1px #4d4d4d;	
         }
         
         nav{
@@ -47,33 +49,62 @@ $my_shade_of_gray:#e6e6e6;
             transition:.45s;
         }
     }
+
+    .product:last-of-type{clear:right;}
     
     .product{
         border-bottom: 1px solid black;
         background: #F0F0F0;
-        h2{
-            margin-top:2.2em;
-            color:red;
+       /* padding-left:5.3em;*/
+        width:70%;
+        margin-left:30%;
+       /* float:left;*/
+        box-shadow: .1em .1em .4em #000000, -.1em -.1em .3em #000000;
+       
+        
+        h2 a{
+            margin-top:1em;
+            margin-left:1em;
+            color:purple;
             font:bold 3em;
+            text-shadow:1px 1px 1px #4d4d4d;	
         }
-        #description{
-            border:2px solid red;
+        .description{
+            border:2px solid purple;
             width:70%;
             background: #Fff;
             
-            float:right;
-            margin-top:-180px;
+           /* float:right;*/
+           /* margin-top:-80px;*/
+            margin-left:20%;
             margin-right:80px;
-            font:20px calibri;
+            font:27px calibri;
             /*display:inline;*/
+           /* text-shadow: 0em 0em 2px #800000;*/
+            text-shadow:1px 1px 1px #4d4d4d;	
         }
         img{
-            /*margin:.2em;*/
+            margin-top:1em;
+            margin-left:1em;
             border:1px solid black;
+           /* position:relative;
+           /* left:-5.3em;*/
+           box-shadow: .1em .1em .4em #000000, -.1em -.1em .3em #000000;
         }
         p{
             margin:.2em;
         }
+        .price{
+            font:bold 22px arial;
+        }
         
+        
+    }
+    #oneProduct
+    {
+        .product{
+            float:none;
+            width:auto;
+        }
     }
 }
