@@ -1,6 +1,6 @@
 
  <h1><%= @page_title %></h1>
- <h1>h1. Bootstrap heading <small>Secondary text</small></h1>
+ <h1>Visited this page<small><%= pluralize(@visit_count, 'time' )%></small></h1>
  <%= render @products %>
   <p id = 'paginate'><%= paginate @products %></p>
  

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'pages/about_us'
+
+  get 'pages/contact_us'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
  
@@ -20,6 +24,18 @@ Rails.application.routes.draw do
   
   
   get 'search_results' => 'products#search_results', as:'search_results'
+  
+  
+  post 'favourite_product/:id' =>'products#save_fav_product', as: 'save_fav_product'
+  
+  
+  
+  
+  
+  
+  
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
