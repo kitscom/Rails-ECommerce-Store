@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   
   get "category/:id" => "products#category", constraints:{id:/\d+/}, as: "category"
   
+  
+  get 'search_results' => 'products#search_results', as:'search_results'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

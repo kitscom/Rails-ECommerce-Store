@@ -1,0 +1,14 @@
+<aside>
+  
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing
+elit. Donec in turpis sit amet sapien efficitur luctus. Vivamus
+
+</p>
+  
+  <p>
+<%= form_tag search_results_path, method: :get do %>
+  <%= text_field_tag :search_keywords %>
+  <%=submit_tag 'Search' %>
+<%end%>
+</p>
+</aside>

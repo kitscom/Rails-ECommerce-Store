@@ -7,11 +7,15 @@
   <% end %>
   
   <% if product.description.present? %>
-    <p class = 'description'><%= product.description%></p>
+    
+    <p class="pull-right lead"><%= product.description%></p>
   <% end %>
+ 
 
   <% if product.price.present? %>
      <p class = 'price'><%= number_to_currency product.price%></p>  
-  <% end %>  
+  <% end %>
+ 
  
 </div>
+

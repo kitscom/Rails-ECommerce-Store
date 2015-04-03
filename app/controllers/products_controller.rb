@@ -11,7 +11,13 @@ class ProductsController < ApplicationController
 
   def category
     @page_title = 'Product By Category'
-    @products = Product.category(params[:id])
+    #@products = Product.category(params[:id])
+   @products = Product.category.where(category_id:(params[:id]))
+  end
+  def search_results                    
+    @page_title = 'Search Results'
+    wildcard_keywords = '%' + params[:search_keywords] + '%'
+    @products = Product.where("name LIKE ?",wildcard_keywords)
   end
 
   private

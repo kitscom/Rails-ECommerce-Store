@@ -5,13 +5,19 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
-  <div id = 'container'>
+<body class = 'body'>
+  <div id = 'container-fluid'>
      <%= render 'shared/store_header' %>
+   
+    
    
 
   <%= yield %>
+    <%= render 'shared/search_aside' %>
+   
+   <%= render 'shared/store_footer' %>
  </div>
 </body>
 </html>
