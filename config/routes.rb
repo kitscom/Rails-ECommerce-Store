@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   
-  get 'pages/about_us'
+  
 
-  get 'pages/contact_us'
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
+   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
  
 
@@ -22,10 +20,12 @@ Rails.application.routes.draw do
   
   get "category/:id" => "products#category", constraints:{id:/\d+/}, as: "category"
   
-  
+ 
   get 'search_results' => 'products#search_results', as:'search_results'
   
-  
+  get 'products/about_us' =>'products#about_us'
+
+  get 'products/contact_us' => 'products#contact_us'
   post 'favourite_product/:id' =>'products#save_fav_product', as: 'save_fav_product'
   
   

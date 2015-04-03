@@ -32,6 +32,14 @@ class ProductsController < ApplicationController
     session[:favourite_product_id]= params[:id]
     redirect_to :back
   end
+  
+  def about_us
+    
+  end
+  
+  def contact_us
+  
+  end
 
   private
 
