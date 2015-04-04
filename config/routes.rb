@@ -18,14 +18,14 @@ Rails.application.routes.draw do
   
   get "products/:id" => "products#show", constraints:{id:/\d+/}, as: "product"
   
-  get "category/:id" => "products#category", constraints:{id:/\d+/}, as: "category"
+  get "products.category/:id" => "products#category", constraints:{id:/\d+/}, as: "category"
   
- 
+  get "products.contentpage/:id" => "products#content_page", as: 'link' 
   get 'search_results' => 'products#search_results', as:'search_results'
   
-  get 'products/about_us' =>'products#about_us'
+  get 'products/about_us' =>'products#about_us', as: 'about' 
 
-  get 'products/contact_us' => 'products#contact_us'
+  get 'products/contact_us' => 'products#contact_us', as: 'contact'
   post 'favourite_product/:id' =>'products#save_fav_product', as: 'save_fav_product'
   
   

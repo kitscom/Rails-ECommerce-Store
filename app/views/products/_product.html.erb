@@ -16,11 +16,13 @@
      <p class = 'price'><%= number_to_currency product.price%></p>  
   <% end %>
  <p>
+  
+  
   <%= link_to 'Set as favourite product', save_fav_product_path(product),
                method: :post%>
  </p>
   <p><% if session[:favourite_product_id].to_i == product.id %></p>
-       <p>This is our favourite product</p>
+       <p>This is your favourite product</p>
      <% end %>
 </div>
 

@@ -2,6 +2,10 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all.page(params[:page]).per(5)
     @page_title = 'Main page title'
+    @pages = Category.all
+    @links = ContentPage.all
+    @hi=Category.all
+    
     if session[:visit_count]
       @visit_count = session[:visit_count] + 1
     else
@@ -16,10 +20,15 @@ class ProductsController < ApplicationController
     @page_title = 'Show page title'
   end
 
+  def content_page
+    @product = ContentPage.find(params[:id])
+   
+  end
   def category
     @page_title = 'Product By Category'
-    #@products = Product.category(params[:id])
-   @products = Product.category.where(category_id:(params[:id]))
+   # @pages = Category.all
+    @products = Product.category.find(params[:id])
+  # @products = Category.find(category_id:(params[:id]))
   end
   
   def search_results                    
