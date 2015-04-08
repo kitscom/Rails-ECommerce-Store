@@ -11,6 +11,7 @@ $black: #000000;
          background: #D2C3C0;   
     }
 #container-fluid {
+    
     width :90%;
    /* border: 5px solid black;*/
     margin :5px auto;
@@ -19,7 +20,7 @@ $black: #000000;
     
     header{
         background: #e9e2dd;
-       
+         /*background: image-url('compilationTable.png');*/
         border-radius:2em ;
        /* margin: 0px auto;*/
         box-shadow: .1em .1em .4em $black, -.1em -.1em .3em $black;
@@ -38,25 +39,22 @@ $black: #000000;
            /*border:1px solid $black;*/
             margin: 0px auto;
             background:#c6c0bc;
-            border-radius:2em ;
+            border-radius:2em ;           
             
-            
-            
-             .nav{
-               
-              border-radius:2em ;
+             .nav{               
+                border-radius:2em ;
                 box-shadow:1px 1px 1px $light_gray_back, -1px -1px 1px $light_gray_back;
            
                 li{
                 
                /*  text-decoration: none;*/
-                 margin:0px 1em;
-                 padding:.1em;
+                 margin:0px 5px;
+             
               
                     a{
                       color:#8F0047;
                       text-decoration: none;
-                       text-shadow:1px 1px 1px $shadow;	
+                      text-shadow:1px 1px 1px $shadow;	
                     }
                      a:hover{
                         color:black;           
@@ -82,11 +80,18 @@ $black: #000000;
        /* border:2px solid black;*/
         width:23%;
         box-shadow: 1px 1px 1px $black, -1px -1px 1px $black;
+     input{
+          margin:5px;
+     }
+   
     }
 
     .product:last-of-type{clear:right;}
     
     .product{
+     p{
+          margin-left:10px;
+     }
         border-radius:2em ;
         background:#ece6da;
        /* padding-left:5.3em;*/
@@ -132,9 +137,7 @@ $black: #000000;
            /* left:-5.3em;*/
            box-shadow: .1em .1em .4em $black, -.1em -.1em .3em $black;
         }
-        p{
-            margin:.2em;
-        }
+      
         .price{
             margin:1em;
             font:bold 22px arial;
