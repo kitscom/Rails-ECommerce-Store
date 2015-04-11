@@ -15,11 +15,6 @@
         <li><%= link_to 'Home', root_path %></li>
         <li><%=link_to 'Admin', admin_root_path %></li>
         
-       
-          
-          <!--li><%= link_to 'About', about_path %></li>
-      
-           <li><%= link_to 'Contact', contact_path %></li>-->
         
             <% @pages.each do |page| %>
            <li><%= link_to page.name, category_path(page) %></li>      

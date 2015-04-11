@@ -10,12 +10,15 @@
 <body class = 'body'>
   <div id = 'container-fluid'>
      <%= render 'shared/store_header' %>
+  
    
-    
    
-
+<section>
   <%= yield %>
+  </section>
     <%= render 'shared/search_aside' %>
+      <%= render 'my_products' %>
+    
    
    <%= render 'shared/store_footer' %>
  </div>

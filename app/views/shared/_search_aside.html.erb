@@ -1,4 +1,4 @@
-<aside>
+<aside id = 'search_aside'>
   
   <%= form_tag search_results_path, method: :get do %>
    <h1>Search By Keyword</h1>
@@ -12,5 +12,17 @@
                                                                                                                                                  
                   ['Hair Care', 3]])) %>
    
-   <%end%>
+ <%end%>
+ 
+    <h1>Filter Products</h1>    
+      
+  <%= form_tag radio_results_path, method: :get do %>
+  
+      <%= radio_button_tag(:status, "New") %>
+      <%= label_tag(:status_new, "New") %>
+      <%= radio_button_tag(:status, "On Sale") %>
+      <%= label_tag(:status_on_sale, "On Sale") %>
+      <%=submit_tag 'Find' %>
+ 
+ <%end%>
  </aside>

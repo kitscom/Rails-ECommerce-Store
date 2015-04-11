@@ -25,4 +25,7 @@ ActiveAdmin.register AdminUser do
     f.actions
   end
 
+#ActiveAdmin.register Post do
+#  filter :status, as: :check_boxes
+#end
 end

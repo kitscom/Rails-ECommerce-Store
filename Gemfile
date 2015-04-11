@@ -52,3 +52,6 @@ gem "mini_magick"
 gem 'bootstrap-sass', '~> 3.3.4'
 #gem 'sass-rails', '>= 3.2'
 gem 'kaminari'
+
+gem 'stripe'
+gem 'dotenv-rails', :groups => [:development, :test]

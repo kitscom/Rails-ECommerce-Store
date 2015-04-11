@@ -1,14 +1,7 @@
 Rails.application.routes.draw do
-  
-  
-
    devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
+   ActiveAdmin.routes(self)
  
-
-  #resources :products
-  #root to: "products#index"
-  
   #READ
   #
   #GET/ Loads the index action of the products controller
@@ -18,15 +11,21 @@ Rails.application.routes.draw do
   
   get "products/:id" => "products#show", constraints:{id:/\d+/}, as: "product"
   
-  get "category/:id" => "products#category", constraints:{id:/\d+/}, as: "category"
+  get "product/categories/:id" => "products#category", constraints:{id:/\d+/}, as: "category"
   
-  get "products.contentpage/:id" => "products#content_page", as: 'link' 
+  get "contentpage/:id" => "products#content_page", as: 'link' 
   get 'search_results' => 'products#search_results', as:'search_results'
+  get 'radio_results' => 'products#radio_results', as:'radio_results'
   
-  get 'products/about_us' =>'products#about_us', as: 'about' 
-
-  get 'products/contact_us' => 'products#contact_us', as: 'contact'
+  #get 'products/about_us' =>'products#about_us', as: 'about' 
+  #get 'products/contact_us' => 'products#contact_us', as: 'contact'
+  
   post 'favourite_product/:id' =>'products#save_fav_product', as: 'save_fav_product'
+  get 'forget_me_bro' =>'products#forget_me_bro', as: 'forget'
+  get 'add_to_cart/:id' =>'products#add_to_cart', as: 'add_to_cart'  
+  get 'remove_from_cart/:id' =>'products#remove_from_cart', as: 'remove_from_cart'
+  resources :charges
+  
   
   
   

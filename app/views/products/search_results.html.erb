@@ -2,7 +2,7 @@
  <h1> Search Results for <%= params[ :search_keywords] %></h1>
  
 <% if @products.size.zero? %>
-  <p>No products found</p></p>
+  <p>No products found</p>
 <%else%>
    <p><%= pluralize(@products.size, 'product') %> found</p>
  <%= render @products %>

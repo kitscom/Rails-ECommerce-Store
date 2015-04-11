@@ -1,0 +1,16 @@
+<h1> Search Results for <%= params[ :status] %></h1>
+
+
+<% if @new.size.zero? %>
+  <p>No products that are new were found</p>
+<%else%>
+   <p><%= pluralize(@new.size, 'product') %> found</p>
+ <%= render @new %>
+<%end%>
+
+<% if @sale.size.zero? %> 
+  <p>No products that are on sale were found</p>
+<%else%>
+   <p><%= pluralize(@new.size, 'product') %> found</p>
+ <%= render @sale %>
+ <%end%>

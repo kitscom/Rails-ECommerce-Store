@@ -1,0 +1,16 @@
+<aside id = "my_products">
+<h3>My Products</h3>
+
+ <% if session[:products].empty? %>
+  <p>No items in your cart</p>
+  <% else %>
+    <ul>
+      <% @cart_products.each do |product| %>
+        <li>
+          <%= product.name %> <%= render :partial =>'shopping', :locals => {:product => product} %>
+        </li>
+   </ul>
+
+   <% end  %>
+  <%end%>
+  </aside>
