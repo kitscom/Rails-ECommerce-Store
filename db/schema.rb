@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408173529) do
+ActiveRecord::Schema.define(version: 20150412024747) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -85,13 +85,15 @@ ActiveRecord::Schema.define(version: 20150408173529) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "status"
-    t.integer  "customer_id"
     t.decimal  "pst_rate"
     t.decimal  "gst_rate"
     t.decimal  "hst_rate"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "customer_id"
   end
+
+  add_index "orders", ["customer_id"], name: "index_orders_on_customer_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name"

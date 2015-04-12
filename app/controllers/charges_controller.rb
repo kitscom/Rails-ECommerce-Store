@@ -1,3 +1,6 @@
+require 'stripe'
+
+
 class ChargesController < ApplicationController
   def new
 end

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'add_to_cart/:id' =>'products#add_to_cart', as: 'add_to_cart'  
   get 'remove_from_cart/:id' =>'products#remove_from_cart', as: 'remove_from_cart'
   resources :charges
+   get 'products/orders' => 'products#order', as: 'order'
   
   
   

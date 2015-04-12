@@ -43,6 +43,12 @@ class ProductsController < ApplicationController
     @links = ContentPage.all
     @products = Category.find(params[:id]).products
   # @products = Product.where(category_id:(params[:id]))
+end
+ def order
+    @order = Order.all
+  @pages = Category.all
+    @links = ContentPage.all
+   
   end
   
   def search_results
