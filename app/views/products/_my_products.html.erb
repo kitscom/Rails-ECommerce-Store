@@ -2,19 +2,20 @@
 <h3>My Products</h3>
 
  <% if session[:products].empty? %>
-  <p>No items in your cart</p>
-  <% else %>
-    <ul>
-      <% @cart_products.each do |product| %>
-        <li>
-          <%= product.name %> <%= render :partial =>'shopping', :locals => {:product => product} %>
-        </li>
-   </ul>
-
-  <% end  %>
   
- <%end%>
+    <p>No items in your cart</p>
+    <% else %>
+     <h1>Added to cart <small><%= pluralize(@count, 'item' )%></small></h1>
+      <ul>
+        <% @cart_products.each do |product| %>
+          <li>
+            <%= product.name %> <%= render :partial =>'shopping', :locals => {:product => product} %>
+        
+          </li>
+      </ul>
+         <% end  %>
+  
+  <%end%>
  
- <p><%= link_to "Continue Shopping", products_path %></p>
-   <p><%= link_to "Checkout", order_path %></p>
-  </aside>
+ 
+ 

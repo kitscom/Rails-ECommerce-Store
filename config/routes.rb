@@ -24,10 +24,10 @@ Rails.application.routes.draw do
   get 'forget_me_bro' =>'products#forget_me_bro', as: 'forget'
   get 'add_to_cart/:id' =>'products#add_to_cart', as: 'add_to_cart'  
   get 'remove_from_cart/:id' =>'products#remove_from_cart', as: 'remove_from_cart'
-  resources :charges
+ # resources :charges
    get 'products/orders' => 'products#order', as: 'order'
   
-  
+get 'product/charges' =>'products#charge', as:'charge'
   
   
   

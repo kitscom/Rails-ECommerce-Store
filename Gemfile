@@ -56,3 +56,4 @@ gem 'kaminari'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'activemerchant'
+gem 'invoicing'
