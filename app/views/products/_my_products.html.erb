@@ -1,10 +1,12 @@
 <aside id = "my_products">
+
 <h3>My Products</h3>
 
  <% if session[:products].empty? %>
   
     <p>No items in your cart</p>
     <% else %>
+    <%@count= @cart_products.size%>
      <h1>Added to cart <small><%= pluralize(@count, 'item' )%></small></h1>
       <ul>
         <% @cart_products.each do |product| %>
@@ -14,7 +16,9 @@
           </li>
       </ul>
          <% end  %>
-  
+  <p><%= link_to "Continue Shopping", products_path %></p>
+   <p><%= link_to "Checkout", order_path %></p>
+</aside>
   <%end%>
  
  

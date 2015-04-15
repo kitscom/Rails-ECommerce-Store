@@ -1,101 +1,151 @@
 <div class="container">
-  <form class="form-horizontal" role="form">
-    <fieldset>
-      <legend>Payment</legend>
-      <div class="form-group">
-        <label class="col-sm-3 control-label" for="card-holder-name">Name on Card</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
-        </div>
-      </div>
-       <div class="form-group">
-        <label class="col-sm-3 control-label" for="card_type">Card Type</label>
-        <div class="col-sm-9">
-          <div class="row">
-            <div class="col-xs-3">
-              <select class="form-control col-sm-2" name="card_type" id="card_type">
-                <option>Type</option>
-                <option value="01">Visa</option>
-                <option value="02">Mastercard</option>
-                <option value="03">Amex</option>
-               
-              </select>
-            </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label" for="card-number">Card Number</label>
-        <div class="col-sm-9">
-          <input type="text" class="form-control" name="card-number" id="card-number" placeholder="Debit/Credit Card Number">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label" for="expiry-month">Expiration Date</label>
-        <div class="col-sm-9">
-          <div class="row">
-            <div class="col-xs-3">
-              <select class="form-control col-sm-2" name="expiry-month" id="expiry-month">
-                <option>Month</option>
-                <option value="01">Jan (01)</option>
-                <option value="02">Feb (02)</option>
-                <option value="03">Mar (03)</option>
-                <option value="04">Apr (04)</option>
-                <option value="05">May (05)</option>
-                <option value="06">June (06)</option>
-                <option value="07">July (07)</option>
-                <option value="08">Aug (08)</option>
-                <option value="09">Sep (09)</option>
-                <option value="10">Oct (10)</option>
-                <option value="11">Nov (11)</option>
-                <option value="12">Dec (12)</option>
-              </select>
-            </div>
-            <div class="col-xs-3">
-              <select class="form-control" name="expiry-year">
-                <option value="13">2013</option>
-                <option value="14">2014</option>
-                <option value="15">2015</option>
-                <option value="16">2016</option>
-                <option value="17">2017</option>
-                <option value="18">2018</option>
-                
-                <option value="19">2019</option>
-                <option value="20">2020</option>
-                <option value="21">2021</option>
-                <option value="22">2022</option>
-                <option value="23">2023</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-3 control-label" for="cvv">Card CVV</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" name="cvv" id="cvv" placeholder="Security Code">
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-3 col-sm-9">
-          <button type="button" class="btn btn-success">Pay Now</button>
-        </div>
-      </div>
-    </fieldset>
-  </form>
+  <form class="form-horizontal" role="form" form action="" method="POST" id="payment-form">
+  <fieldset>
+						
+  <legend>Customer Details</legend>
   
-   <h3>My Products want a pic an ddetails</h3>
-   
-   
+	 <div class="form-group">								
+  <label for="name"class="col-sm-3 control-label" >First Name</label>
+  <input type="text" class="form-control" placeholder="Enter First Name" required autofocus />
+ 
+  <label for ="lastname"class="col-sm-3 control-label">Last Name</label>
+  <input type="text" class="form-control" placeholder="Enter Last Name" required autofocus />
+ 
+								
+  
+  <label for="address"class="col-sm-3 control-label">Address</label>
+  <input type="text" class="form-control"  placeholder="Enter Street Address" required/>
+  
+  <label for="city" class="col-sm-3 control-label">City</label>
+  <input type="text" class="form-control" placeholder="Enter City" required/>
+  
+    <label for="province"  class="col-sm-3 control-label">Province</label>              
+              
+               <select class="form-control col-sm-2" name="expiry-month" id = "prov">
+                <option>Province</option>
+                <option value="01">Alberta</option>
+                <option value="02">British Columbia</option>
+                <option value="03">Manitoba</option>
+                <option value="04">New Brunswick</option>
+                <option value="05">Newfoundland</option>
+                <option value="06">Nova Scotia</option>
+                <option value="07">Prince Edward Islnd</option>
+                <option value="08">Ontario</option>
+                <option value="09">Yukon</option>
+                <option value="10">Northwest Territories</option>
+                <option value="11">Quebec</option>
+                <option value="12">Nunuvut</option>
+                 <option value="13">Saskatchewan</option>
+              </select>
+          
+            </hr><br><br><br>
+    
+  <label for="country" class="col-sm-3 control-label">Country</label>
+ <input type="text" class="form-control" placeholder="Enter Country" required />
+    
+    <label for="postal"class="col-sm-3 control-label">Postal Code</label>
+      <input type="text" class="form-control" placeholder="Example r3t4g4" required />
+    
+
+  </fieldset>
+
+   <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <button type="button" class="btn btn-success">Enter</button>
+        </div>
+      </div>
+    </form>
+  
+ 
 </div>
-          
-          
-          <%= form_tag charge_path do %>
+         
+         <div>
+         <%= form_tag order_path do %>
   <article>
     <label class="amount">
-      <span>Amount: $5.00</span>
+      <span>Amount: in charges$5.00</span>
     </label>
   </article>
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="A month's subscription"
-          data-amount="500"></script>
+          data-amount="500">
+    
+  </script>
+          
+          <form action="" method="POST" id="payment-form">
+  <span class="payment-errors"></span>
+
+  <div class="form-row">
+    <label>
+      <span>Card Number charges/new.html.erb</span>
+      <input type="text" size="20" data-stripe="number"/>
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label>
+      <span>CVCrrrrrr</span>
+      <input type="text" size="4" data-stripe="cvc"/>
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label>
+      <span>Expirationrrrrrr (MM/YYYY)</span>
+      <input type="text" size="2" data-stripe="exp-month"/>
+    </label>
+    <span> / </span>
+    <input type="text" size="4" data-stripe="exp-year"/>
+  </div>
+
+  <button type="submit">Submit Payment where???</button>
+</form>
 <% end %>
+
+ </div>
+
+
+
+
+<div>
+
+<%= form_tag @customer do %>
+ 
+
+  <div class="field">
+    <%= label_tag :first_name %><br>
+    <%= text_field_tag :first_name %>
+  </div>
+  <div class="field">
+    <%= label_tag :last_name %><br>
+    <%= text_field_tag :last_name %>
+  </div>
+  <div class="field">
+    <%= label_tag :email_address %><br>
+    <%= text_field_tag :email_address %>
+  </div> 
+ <div class="field">
+    <%= label_tag :province_id%><br>
+  <%= text_field_tag :province_id %>
+  </div>
+  
+  
+ 
+ <br>
+  
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+  
+ 
+  
+   <div>
+    
+      <%= render 'my_products' %>
+   </div>
+  
+  
+<% end %>
+

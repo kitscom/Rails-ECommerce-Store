@@ -2,27 +2,19 @@ class ProductsController < ApplicationController
   before_filter :initialize_products 
   #around_action :radio_results, only: :radio_results
   def index
-    @products = Product.all.order("name DESC").page(params[:page]).per(5)
-    
-    
-    #@products = Product.order("id DESC").page(page).per(50)
+    @products = Product.all.order("name DESC").page(params[:page]).per(5)    
+   
     @page_title = 'Main page title'
     @pages = Category.all.order("name Desc")
     @links = ContentPage.all
-    @new = Product.status("New").order("name")
-   # @status = @status.status(params[:status]) if params[:status].present?
+    @new = Product.status("New").order("name") 
     
     if session[:visit_count]
       @visit_count = session[:visit_count] + 1
     else
       @visit_count = 1
     end
-    session[:visit_count] = @visit_count
-    
-    # @status = Product.where(nil)
-    #filtering_params(params).each do |key, value|
-    #@products = @products.public_send(key, value) if value.present?
-     #end
+    session[:visit_count] = @visit_count    
     
   end
 
@@ -36,26 +28,27 @@ class ProductsController < ApplicationController
   def content_page
     @page = ContentPage.find(params[:id])
     @pages = Category.all
-    @links = ContentPage.all
-   
-   
+    @links = ContentPage.all   
   end
+  
   def category
     @page_title = 'Product By Category'
     @pages = Category.all.order('name desc')
     @links = ContentPage.all
     @products = Category.find(params[:id]).products
-  # @products = Product.where(category_id:(params[:id]))
-end
- def order
-    @order = Order.all
-  @pages = Category.all
+ 
+  end
+  
+  def order
+    @order = Order.all#should only be just one specific rder
+    @pages = Category.all
     @links = ContentPage.all
+    @provinces = Province.all
    
   end
   
   def search_results
-     #query = "%#{search}%"
+    
     @page_title = 'Search Results'
     wildcard_keywords = '%' + params[:search_keywords] + '%'
     where_category = ' '
@@ -66,60 +59,55 @@ end
     @products = Product.where('name LIKE ? OR description LIKE ? '+ where_category, wildcard_keywords, wildcard_keywords)
     @pages = Category.all
     @links = ContentPage.all
-    #@new = Product.status("New")
-  
+    @new = Product.status("New")  
   end
   
   def radio_results
-   @new = Product.status("New")
-   @sale = Product.status("On Sale")
+   @products = Product.status(params[ :status])
+
    @pages = Category.all
    @links = ContentPage.all
   
   end
- 
-  #def radio_button(method, tag_value, options = {})
-  #  @template.radio_button(@object_name, method, tag_value, objectify_options(options))
-  #end
+
+  def create
+    @customer = Customer.create(customer_params)
+    flash[:notice] = "You were successfully added!"
+    redirect_to :back
+   
+  end
   
-  #def search_category
-  #  @products = Category.new
-  #end
   def save_fav_product
     session[:favourite_product_id]= params[:id]
+    
     redirect_to :back
   end
+  
   def forget_me_bro
    session[:visit_count]=nil
    session[:products]= nil
-   redirect_to  :action => :index
+   redirect_to   :back
   end
   
-  def add_to_cart
+  def add_to_cart   
+    
     id = params[:id].to_i
     session[:products] ||=[] #default to empty array[]
     session[:products] << id
     #session[:products] << id  unless session[:products].include?(id)
-    redirect_to :action => :index
+    redirect_to :back
   end
  
   
   def remove_from_cart
       id = params[:id].to_i
       session[:products].delete(id)
-      redirect_to :action => :index
+      redirect_to  :back
     
   end
   
   
-  #def about_us
-  #  
-  #end
-  #
-  #def contact_us
-  #
-  #end
-  
+ 
   def charge
    
     # Amount in cents
@@ -157,9 +145,11 @@ protected
                                     :category_id, :status)
   end
   
+ def customer_params
+      {"first_name" => params.require(:first_name),
+      "last_name" => params.require(:last_name),
+      "email_address" => params.require(:email_address),
+      "province_id" => params.require(:province_id)}
+ end
 
-  ## A list of the param names that can be used for filtering the Product list
-  #def filtering_params(params)
-  #  params.slice(:status, :location, :starts_with)
-  #end
 end

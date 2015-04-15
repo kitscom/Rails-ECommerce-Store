@@ -1,18 +1,29 @@
-<footer>
-  <nav role='navigation'>
+<footer>   
+  <div class="navigation">
+    
+    <nav role='navigation'>
       <ul class = ' nav nav-tabs' >
-          <li><%= link_to 'Home', root_path %></li>
-          <li><%=link_to 'Admin', admin_root_path %></li>
         
-          <li><%= link_to 'Soaps', products_path %></li>
-          <li><%= link_to 'Bath Products', products_path %></li>
-          <li><%= link_to 'Hair Care', products_path %></li>
-          <li><%= link_to 'Shaving Care', products_path%></li>
-          <li><%= link_to 'Skin Care', products_path %></li>
+        <li><%= link_to 'Home', root_path %></li>
+        <li><%=link_to 'Admin', admin_root_path %></li>
+        
+        
+            <% @pages.each do |page| %>
+           <li><%= link_to page.name, category_path(page) %></li>      
           
-          <li><%= link_to 'About', products_path %></li>
-           <li><%= link_to 'Contact', products_path %></li>
+        <% end %>
+       
+ 
+          <% @links.each do |page| %>
+           <li><%= link_to page.title, link_path(page) %></li>      
+          
+        <% end %>
       </ul>
     </nav>
+    
+    
+    
+</div>
 </footer>
 
+ 
