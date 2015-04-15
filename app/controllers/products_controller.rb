@@ -149,7 +149,9 @@ protected
       {"first_name" => params.require(:first_name),
       "last_name" => params.require(:last_name),
       "email_address" => params.require(:email_address),
-      "province_id" => params.require(:province_id)}
+      "province_id" => params.require(:province_id),
+      "address" => params.require(:address),
+      "city" => params.require(:city)}
  end
 
 end
