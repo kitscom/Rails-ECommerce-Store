@@ -1,0 +1,7 @@
+<% if session[:products].include?(product.id) %>
+  <%= link_to 'Remove from cart', remove_from_cart_path(product) %>
+  <%else%>
+
+ <%= link_to 'Add to cart', add_to_cart_path(product) %>
+ <%end%>
+ 

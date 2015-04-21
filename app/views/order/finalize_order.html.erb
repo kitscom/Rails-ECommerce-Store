@@ -1,0 +1,14 @@
+<div>
+<%= render 'my_invoice' %> 
+</div>
+<div>  
+   <%= form_tag order_path do %>
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="Your Purchase"
+          data-amount="<%= 66+66+44+456 %>">
+    
+  </script>          
+  <% end %> 
+ 
+</div>

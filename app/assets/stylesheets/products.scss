@@ -1,25 +1,22 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
 $shadow:#4d4d4d;
 $my_shade_of_gray:#e6e6e6;
 $light_gray_back:#4d4d4d;
 $black: #000000;
 
-    .body{
+body{
          background: #D2C3C0;   
     }
-#container-fluid {    
-    width :90%;  
-    margin :5px auto;
-    padding: 1em;  
+    
+.container-fluid {     
+     background: #D2C3C0;      
     
     header{
         background: #e9e2dd;       
         border-radius:2em ;      
-        box-shadow: .1em .1em .4em $black, -.1em -.1em .3em $black;
-        height:215px;
+        box-shadow: .1em .1em .4em $black, -.1em -.1em .3em $black;      
         
         h1{
             width:50%;           
@@ -54,51 +51,42 @@ $black: #000000;
             }
         }      
     }
-    /*#paginate{
-       color:black;
-    }*/
-    #search_aside{
-         position:relative;
+  
+    #search_aside{     
          border-radius:2em ;
          background:#E0EFEA ;
-         padding:10px;     
-         width:23%;
+         padding:10px;
+         margin:10px;
          box-shadow: 1px 1px 1px $black, -1px -1px 1px $black;
-     input{
-          margin:5px;
-     }
+          input{
+               margin:5px;
+          }
    
     }
 
     .product:last-of-type{clear:right;}
     
-    .product{
+    .product{ 
       p{
-        margin-left:10px;
+        margin-left:15px;
+       
       }
         border-radius:2em ;
-        background:#ece6da;
-      
-        width:70%;
-    
-        float:right;
+        background:#ece6da;        
         margin:1em;
         box-shadow: .1em .1em .4em $black, -.1em -.1em .3em $black;    
         
         h2 a{
-            margin-top:1em;
-            margin-left:.2em;
+              margin:12px;
             color: #8F0047;   
             font:bold 3em;
             text-shadow:1px 1px 1px $shadow;	
         }
-        .pull-right{           
+     .description{           
             border-radius:2em ;
-            width:60%;
+            width:50%;
             background: #e9e2dd;            
-            padding:15px;
-            margin-top:-4em;        
-            margin-right:3em;
+            padding:15px;    
            
         }
         img{
@@ -107,8 +95,7 @@ $black: #000000;
             border:1px solid $black;
             border-radius:2em ;          
             box-shadow: .1em .1em .4em $black, -.1em -.1em .3em $black;
-        }
-      
+        }      
         .price{
             margin:1em;
             font:bold 22px arial;
@@ -116,21 +103,13 @@ $black: #000000;
     }
     #oneProduct{
         .product{
-            float:right;
-            width:70%;
-        }
-        
-    }
-    
-   
+            float:right;         
+        }        
+    }   
     #my_products {     
-       margin:1em;
-       border: 1px solid black;
        border-radius:2em ;
        background:#E0EFEA ;
-       padding:10px;     
-       width:23%;
-      /* height:300px;*/
+       padding:10px;      
        box-shadow: 1px 1px 1px $black, -1px -1px 1px $black;
           ul{
             list-style: none;
@@ -138,21 +117,15 @@ $black: #000000;
                  margin-left:-28px;
                }
            }
-     }
-     
-   
-   
- 
+     } 
      footer{
-          margin-top:15em;
-       clear:both;
-         width:100%;
-        
+         
        nav{
          ul{
+         /* border:2px solid red;*/
           li{
-            margin:2px;
-            padding:2px;
+            margin:8px;
+            padding:5px;
                a{
                  color:#8F0047;
                  text-shadow:1px 1px 1px $shadow;	
@@ -165,25 +138,15 @@ $black: #000000;
           }
        }   
      }
-     
-     .form-horizontal{
-          width:70%;
-          margin-left:12px;
-          label{
-               margin-top:10px;
-              margin-left:15px;
-              width:160px;height:30px;
-              border-radius:2px;
-          }
-          input{width:300px; margin-left:32px; padding: 5px;
-          margin-top :10px;}
-              
-              #prov{margin:5px;}
-         select{width :130px; margin-left: 40px;}
+   
+    .form-group{
+         margin-top:3em;
+         width:90%;
+         margin-left:2em;
          
-         
-         
-     }
+         .btn{background:gray; border:1px solid black; box-shadow:1px 1px 1px black;}
+    }
+   
 }
 
 

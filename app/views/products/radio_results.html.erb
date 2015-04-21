@@ -1,8 +1,5 @@
 <h1> Search Results for <%= params[ :status] %></h1>
-
-
-
-  <p><%= pluralize(@products.size, 'product') %> found</p>
+ <p><%= pluralize(@products.size, 'product') %> found</p>
  <%= render @products %>
 
 

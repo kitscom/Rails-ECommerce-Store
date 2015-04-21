@@ -1,28 +1,26 @@
 <aside id = 'search_aside'>
-  
+
   <%= form_tag search_results_path, method: :get do %>
    <h1>Search By Keyword</h1>
-  
+
       <%= text_field_tag :search_keywords %>
       <%=submit_tag 'Search' %>
- 
+
    <h1>Search By Category</h1>
-  
-   <%= select_tag(:category_id, options_for_select([['All',-1],['Soaps', 5], ['Skin Care', 2], ['Shaving Care', 7],['Accessories', 6],['Bath Products', 4],
-                                                                                                                                                 
-                  ['Hair Care', 3]])) %>
-   
+
+   <%= select_tag(:category_id, options_for_select([['All',-1],['Soaps', 5], ['Skin Care', 2],
+                            ['Shaving Care', 7],['Accessories', 6],['Bath Products', 4],
+                            ['Hair Care', 3]])) %>
  <%end%>
- 
-    <h1>Filter Products</h1>    
-      
+
+    <h1>Filter Products</h1>
+
   <%= form_tag radio_results_path, method: :get do %>
-  
-      <%= radio_button_tag(:status, "New" ) %>
-      <%= label_tag(:status_new, "New") %>
-      <%= radio_button_tag(:status, "On Sale") %>
-      <%= label_tag(:status_on_sale, "On Sale") %>
-      <%=submit_tag 'Find' %>
- 
+      <%= radio_button_tag('status', "New" ) %>
+      <%= label_tag("status_New") %>
+      <%= radio_button_tag('status', "On Sale") %>
+      <%= label_tag( "status_On Sale") %>
+      <%= submit_tag 'Find' %>
  <%end%>
+
  </aside>

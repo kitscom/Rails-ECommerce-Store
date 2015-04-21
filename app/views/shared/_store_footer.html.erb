@@ -1,29 +1,22 @@
-<footer>   
-  <div class="navigation">
-    
-    <nav role='navigation'>
-      <ul class = ' nav nav-tabs' >
-        
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%=link_to 'Admin', admin_root_path %></li>
-        
-        
+<footer>
+    <div class="navigation">
+      <nav role='navigation'>
+        <ul class = ' nav nav-tabs' >
+
+           <li><%= link_to 'Home', root_path %></li>
+           <li><%=link_to 'Admin', admin_root_path %></li>
+
             <% @pages.each do |page| %>
-           <li><%= link_to page.name, category_path(page) %></li>      
-          
-        <% end %>
-       
- 
-          <% @links.each do |page| %>
-           <li><%= link_to page.title, link_path(page) %></li>      
-          
-        <% end %>
-      </ul>
-    </nav>
-    
-    
-    
-</div>
+                 <li><%= link_to page.name, category_path(page) %></li>
+            <% end %>
+
+             <% @links.each do |page| %>
+                 <li><%= link_to page.title, link_path(page) %></li>
+              <% end %>
+
+          </ul>
+       </nav>
+    </div>
 </footer>
 
- 
+
