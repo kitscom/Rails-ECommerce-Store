@@ -1,0 +1,78 @@
+<aside id = "my_invoice">
+
+<h3>Final Order</h3>
+
+<% if session[:products].empty? %>
+
+    <p>No invoice at this time</p>
+    
+    <% else %>
+
+    <%@count= @cart_products.size
+    @tax= 0
+    @subtotal=0
+    @total_pst =0
+    @total_gst =0
+    @total_hst =0
+    @grand_total = @subtotal + @tax=%>
+ 
+     <h1>Invoice for: <%= @customer.first_name %></h1>
+ 
+     <%#<form method="post" class="form-horizontal" action="/products/create_order" role="form" > %>
+ 
+      <ul>
+        <% @cart_products.each do |product| %>
+        <% qty = params['quantity' + product.id.to_s].to_i %>
+      
+         <%#@tax_total = product.price * @tax%>
+          <%#@product_with_tax= product.price + @tax_total%>
+
+             
+          <li>
+            <p>product name<%= product.name %></p>
+            <p>product description<%= product.description %></p>
+            <p>product price<%=number_to_currency( product.price) %> x <%= qty %></p>
+               
+              <%@subtotal+=(product.price*qty)%>          
+
+          </li>
+              
+        <% end  %>
+      </ul>
+      
+        <% if @province.gst.present?%>
+           <%@tax+=@subtotal*@province.gst.round(2) %>
+           <%  @total_gst+=@subtotal* @province.gst.round(2) %>   
+        <% end%>
+    
+         <% if @province.pst.present?%>
+             <%@tax+= @subtotal* @province.pst.round(2)  %>
+                <%  @total_pst+=@subtotal* @province.pst.round(2) %>   
+         <% end%>
+         
+         <% if @province.hst.present?%>
+              <%@tax+= @subtotal* @province.hst.round(2) %>
+                 <%  @total_hst+=@subtotal* @province.hst.round(2) %>   
+         <% end%>
+         
+ <div>
+    </br> </br> </br>
+     <p>Total of products <%=number_to_currency(@subtotal)%></p>
+     
+     
+      <%if @province.pst.present?%>
+        <p>Total pst <%= number_to_currency(@total_pst)%></p>
+      <%end%>
+      
+         <%if @province.gst.present?%>
+                <p>Total gst <%=number_to_currency(@total_gst)%></p>
+         <%end%>
+        
+         <%if @province.hst.present?%>
+            <p>Total hst <%= number_to_currency(@total_hst)%></p>
+         <%end%>
+         
+        <p> Grand Total: <%=number_to_currency(@tax + @subtotal)%></p>
+</div>
+<% end %>
+</aside>

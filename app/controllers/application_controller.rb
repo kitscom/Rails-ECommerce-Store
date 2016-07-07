@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   def initialize_links
     @pages = Category.all.order('name Desc')
     @links = ContentPage.all
+    #@links.each {|e| if(e.description == "About us") e.description="About Us" }
   end
 
   def initialize_products

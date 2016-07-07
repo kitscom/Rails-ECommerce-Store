@@ -7,20 +7,22 @@ $light_gray_back:#4d4d4d;
 $black: #000000;
 
 body{
-         background: #D2C3C0;   
-    }
+         background: #D2C3C0;      
+}
     
 .container-fluid {     
      background: #D2C3C0;      
-    
+       font-style:helvetica;
     header{
         background: #e9e2dd;       
         border-radius:2em ;      
         box-shadow: .1em .1em .4em $black, -.1em -.1em .3em $black;      
         
-        h1{
+        .storeTitle{
             width:50%;           
-            margin: 0px auto;            
+            display: block;
+                    margin-left: auto;
+                     margin-right: auto;  
             color: #8F0047;            
             font:bold 6.2em 'century', serif;
             text-shadow:1px 1px 5px $shadow, 0px 0px 2px black;	
@@ -30,92 +32,123 @@ body{
             width:99%;          
             margin: 0px auto;
             background:#c6c0bc;
-            border-radius:2em ;             
-             .nav{               
                 border-radius:2em ;
                 box-shadow:1px 1px 1px $light_gray_back, -1px -1px 1px $light_gray_back;
            
-                li{            
-                 margin:0px 5px;              
-                    a{
-                      color:#8F0047;
-                      text-decoration: none;
-                      text-shadow:1px 1px 1px $shadow;	
+               ul{
+                    text-align: center;
+                    li{            
+                     margin:1%;                     
+                     float:none;
+                     display:inline-block;
+                        a{
+                          color:#8F0047;
+                          text-decoration: none;
+                          padding: 0px 5px;
+                          text-shadow:1px 1px 1px $shadow;	
+                        }
+                         a:hover{
+                            color:black;           
+                            transition:.75s;
+                         }
                     }
-                     a:hover{
-                        color:black;           
-                        transition:.75s;
-                     }
-                }
+               }
             
-            }
         }      
     }
   
-    #search_aside{     
+    #search_aside{
+     
          border-radius:2em ;
-         background:#E0EFEA ;
-         padding:10px;
-         margin:10px;
+         background:#E0EFEA ;     
          box-shadow: 1px 1px 1px $black, -1px -1px 1px $black;
+             h1{
+               margin: 10px 10px;
+             }
           input{
                margin:5px;
+               padding:5px;
           }
-   
+     
     }
 
     .product:last-of-type{clear:right;}
     
-    .product{ 
-      p{
-        margin-left:15px;
-       
-      }
+    .product{    
+    border:2px solid gray;
+    display:inline-block;
+    padding:12px ;
+    margin:10px;
+       width:28%;
+       min-width: 300px;       
         border-radius:2em ;
         background:#ece6da;        
-        margin:1em;
         box-shadow: .1em .1em .4em $black, -.1em -.1em .3em $black;    
         
         h2 a{
-              margin:12px;
-            color: #8F0047;   
-            font:bold 3em;
-            text-shadow:1px 1px 1px $shadow;	
+             color: #8F0047;   
+             font:bold 3em;
+             text-shadow:1px 1px 1px $shadow;	
         }
      .description{           
-            border-radius:2em ;
-            width:50%;
+            border-radius:.5em ;
             background: #e9e2dd;            
-            padding:15px;    
+        margin: 5px;
+        padding: 6px;
+        height:65px;
+       
+         font:17px calibri;
+        /*border: 1px solid black;*/
+        /*box-shadow: 0.1em 0.1em 0.1em;*/
+       
            
         }
-        img{
-            margin-top:1em;
-            margin-left:1em;
-            border:1px solid $black;
-            border-radius:2em ;          
-            box-shadow: .1em .1em .4em $black, -.1em -.1em .3em $black;
-        }      
+          .product-image{
+          /*     max-height: 288px;*/
+          /*     overflow: hidden;*/
+          /*     border-radius: 2em;*/
+             /*border: 2px solid black;*/
+         
+            
+             
+          }
+           img{
+                  display: block;
+                    margin-left: auto;
+                     margin-right: auto;
+                     height: 170px;
+                        /*box-shadow: 0.1em 0.1em 0.4em;*/
+              } 
         .price{
-            margin:1em;
-            font:bold 22px arial;
+            font:bold 28px calibri;
+            margin:10px;
         }       
     }
     #oneProduct{
         .product{
-            float:right;         
+              
         }        
     }   
-    #my_products {     
+    #my_products {      
        border-radius:2em ;
-       background:#E0EFEA ;
-       padding:10px;      
+       background:#E0EFEA ;     
        box-shadow: 1px 1px 1px $black, -1px -1px 1px $black;
+          h3{
+               margin:15px;
+               padding:5px;
+          }
+          p{
+               margin:15px;
+                padding: 10px 5px;
+          }
           ul{
             list-style: none;
+            padding:15px;
                li{
                  margin-left:-28px;
+                   
                }
+               
            }
      } 
      footer{
@@ -146,7 +179,10 @@ body{
          
          .btn{background:gray; border:1px solid black; box-shadow:1px 1px 1px black;}
     }
-   
+  #my_invoice{
+     
+     border:2px solid blue;
+  }
 }
 
 

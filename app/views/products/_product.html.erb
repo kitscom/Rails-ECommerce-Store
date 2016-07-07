@@ -3,7 +3,7 @@
   <h2><%= link_to product.name, product%></h2>
   
   <% if product.image.present? %>      
-    <p><%=link_to (image_tag product.image.medium.url), product%></p>     
+    <div class="product-image"><%=link_to (image_tag product.image.large.url), product%></div>     
   <% end %>
   
   <% if product.description.present? %>    
@@ -20,7 +20,7 @@
 <p><%= render :partial =>'shopping', :locals => {:product => product} %></p>
  
   <% if session[:favourite_product_id].to_i == product.id %>
-            <p>This is your favourite product</p>
+           <!--<p>This is your favourite product</p>-->
   <% end %>
 
 </div>

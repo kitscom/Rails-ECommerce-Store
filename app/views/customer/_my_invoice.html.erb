@@ -2,7 +2,7 @@
 <div class = 'col-lg 8'>
 <aside id = "my_invoice">
 
-<h3>My Invoice place holder</h3>
+<h2>Please choose your quantity</h2>
 
 <% if session[:products].empty? %>
 
@@ -17,73 +17,43 @@
     @total_gst =0
     @total_hst =0%>
  
-     <h1>Invoice for : <%= @customer.first_name %></h1>
+     <h3>Invoice for: <%= @customer.first_name %></h3>
+    <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+    <% end %>   
  
      <%#<form method="post" class="form-horizontal" action="/products/create_order" role="form" > %>
-     <%= form_tag({controller: "customer", action:"preview"},method: "post") %>
+     <%= form_tag({controller: "customer", action:"qty"},method: "post") %>
 
       <ul>
         <% @cart_products.each do |product| %>
-      
-         <%#@tax_total = product.price * @tax%>
-          <%#@product_with_tax= product.price + @tax_total%>
-
-           <% if @province.gst.present?%>
-              <%@tax+=product.price* @province.gst.round(2) %>
-              <%  @total_gst+=product.price* @province.gst.round(2) %>   
-           <% end%>
-
-            <% if @province.pst.present?%>
-                <%@tax+= product.price* @province.pst.round(2)  %>
-                   <%  @total_pst+=product.price* @province.pst.round(2) %>   
-            <% end%>
-            
-            <% if @province.hst.present?%>
-                 <%@tax+= product.price* @province.hst.round(2) %>
-                    <%  @total_hst+=product.price* @province.hst.round(2) %>   
-            <% end%>
-            
-          <li>
-            <p>product name<%= product.name %></p>
-            <p>product description<%= product.description %></p>
-            <p>product price<%=number_to_currency( product.price) %></p>
-               
-              <%@subtotal+=product.price%>       
- 
+        <div class ='row'>
+        
+             <li> product name:<%= product.name %>  </li>
+             <li> product description:<%= product.description %></li>
+             <li> product price:<%=number_to_currency( product.price) %></li>
+        </div> 
+           
+            <div class = 'row'
             <div class="form-group">
-              <%= field_name = ('quantity'+product.id.to_s)
+              <%= field_name = ('quantity'+ product.id.to_s)
                       label_tag field_name, nil, class: "col-sm-2 control-label" %>
                       
-                         <%@qty=field_name%>
-                         <p><%=@qty%></p>
+                     
               <div class="col-sm-4">
                 <%= text_field_tag field_name, nil, class: "form-control" %>
               </div>
             </div>
-
-          </li>
-              
+      
+        
+           
         <% end  %>
       </ul>
-      <p>total of products <%=number_to_currency(@subtotal)%></p>
-      <p>total for all tax <%=number_to_currency(@tax)%></p>
       
-      <%if @province.pst.present?%>
-        <p>total pst <%= number_to_currency(@total_pst)%></p>
-      <%end%>
-      
-         <%if @province.gst.present?%>
-                <p>total gst <%=number_to_currency(@total_gst)%></p>
-         <%end%>
-        
-         <%if @province.hst.present?%>
-            <p>total hst <%= number_to_currency(@total_hst)%></p>
-         <%end%>
-
+       
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <%= submit_tag 'Submit', class: 'btn btn-success' %>   
-      
+      <%= submit_tag 'Submit', class: 'btn btn-success' %>        
     </div>
   </div>
 <% end %>

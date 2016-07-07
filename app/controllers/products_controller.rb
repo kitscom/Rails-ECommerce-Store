@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   before_action :initialize_links
 
   def index
-    @products = Product.all.order('name DESC').page(params[:page]).per(5)
+    @products = Product.all.order('name DESC').page(params[:page]).per(6)
     @new = Product.status('New').order('name')
   end
 
@@ -57,6 +57,7 @@ class ProductsController < ApplicationController
     id = params[:id].to_i
     session[:products] ||= []
     session[:products] << id
+
     redirect_to :back
   end
 

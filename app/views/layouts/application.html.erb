@@ -20,67 +20,71 @@
 
     <script type="text/javascript">
   // This identifies your website in the createToken call below
-  Stripe.setPublishableKey('pk_test_Q8lljxokI1cQ5FZ3MKGoYPK5');
-   var stripeResponseHandler = function(status, response) {
-      var $form = $('#payment-form');
+ // Stripe.setPublishableKey('pk_test_Q8lljxokI1cQ5FZ3MKGoYPK5');
+ //  var stripeResponseHandler = function(status, response) {
+   //   var $form = $('#payment-form');
 
-      if (response.error) {
+   //   if (response.error) {
         // Show the errors on the form
-        $form.find('.payment-errors').text(response.error.message);
-        $form.find('button').prop('disabled', false);
-      } else {
+    //    $form.find('.payment-errors').text(response.error.message);
+    //    $form.find('button').prop('disabled', false);
+    //  } else {
         // token contains id, last4, and card type
-        var token = response.id;
+    //    var token = response.id;
         // Insert the token into the form so it gets submitted to the server
-        $form.append($('<input type="hidden" name="stripeToken" />').val(token));
+     //   $form.append($('<input type="hidden" name="stripeToken" />').val(token));
         // and re-submit
-        $form.get(0).submit();
-      }
-    };
+       // $form.get(0).submit();
+   //   }
+ //   };
 
-    jQuery(function($) {
-      $('#payment-form').submit(function(e) {
-        var $form = $(this);
-
-        // Disable the submit button to prevent repeated clicks
-        $form.find('button').prop('disabled', true);
-
-        Stripe.card.createToken($form, stripeResponseHandler);
-
-        // Prevent the form from submitting with the default action
-        return false;
-      });
-    });
+  //  jQuery(function($) {
+      
+    //    $('#payment-form').submit(function(e) {
+    //      var $form = $(this);
+  
+          // Disable the submit button to prevent repeated clicks
+      //    $form.find('button').prop('disabled', true);
+  
+       //   Stripe.card.createToken($form, stripeResponseHandler);
+  
+          // Prevent the form from submitting with the default action
+      //    return false;
+     //   });
+      
+  //  });
+    
   </script>
 </head>
 
 <body>
-  <div class = 'container-fluid'>
-
-      <div  class = 'row'>
-         <div class = 'col-lg-12'>
-           <%= render 'shared/store_header' %>
-         </div>
-      </div>
-
-      <div class="row">
-
-          <div class='col-lg-4  col-md-6 col-sm-6'>
-             <%= render 'shared/search_aside' %>
-            <%= render 'my_products' %>
-          </div>
-
-          <div class='col-lg-8 col-md-6 col-sm-6'>
-                 <%= yield%>
-          </div>
-
-      </div>
-
-      <div  class = 'row'>
-         <div class = 'col-lg-12 col-md-12'>
-           <%= render 'shared/store_footer' %>
-         </div>
-      </div>
- </div>
+    <div class = 'container-fluid'>
+  
+        <div  class = 'row'>
+           <div class = 'col-lg-12'>
+             <%= render 'shared/store_header' %>
+           </div>
+        </div>
+  
+        <div class="row">
+  
+            <div class='col-lg-2  col-md-3 col-sm-12'>
+               <%= render 'shared/search_aside' %>
+              <%= render 'my_products' %>
+        </div>
+  
+        <div class='col-lg-10 col-md-9 col-sm-12'>
+                   <%= yield%>
+            </div>
+  
+        </div>
+  
+        <div  class = 'row'>
+           <div class = 'col-lg-12 col-md-12'>
+             <%= render 'shared/store_footer' %>
+           </div>
+        </div>
+        
+   </div>
 </body>
 </html>

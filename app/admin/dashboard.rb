@@ -24,12 +24,17 @@ ActiveAdmin.register_page "Dashboard" do
                             column("Products") do |order|
                               #get all line-items on this order
                               #for each, get its product and add to a string:
-                              "item1, item2, item3..."
+                              #name = name + something
+                              names=""
+                              order.line_items.each do |item|
+                                names = names + item.product.name
+                              end
+                           names
                               #also accumulate the price*quantity
                             end
                             
                             column("Total") do |order|
-                              #the order has taxes. Get each tax and then apply to the total.
+                              #the order has taxes. Get each tax and then apply to the total. It already has a total...
                               23.50*(1+(order.pst_rate||0))
                             end
                             

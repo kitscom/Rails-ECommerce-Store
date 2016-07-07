@@ -30,24 +30,24 @@ class ProductUploader < CarrierWave::Uploader::Base
   #
    #
    #def scale(width, height)
-   #  process :resize_to_fit[width, height]
+   #
    #end
 
   # Create different versions of your uploaded files:
-   version :thumb do
-    process :resize_to_fit => [50, 50]
-   end
-   
-   version :small do
-    process resize_to_fit: [100, 100]
-  end
-
-  version :medium do
-    process resize_to_fit: [200, 200]
-  end
+  # version :thumb do
+  #  process :resize_to_fit => [100, 100]
+  # end
+  # 
+  # version :small do
+  #  process resize_to_fit: [150, 150]
+  #end
+  #
+  #version :medium do
+  #  process resize_to_fit: [200, 200]
+  #end
 
   version :large do
-    process resize_to_fit: [300, 300]
+   process resize_to_fit: [150, 150]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

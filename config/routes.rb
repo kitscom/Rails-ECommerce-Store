@@ -19,14 +19,17 @@ Rails.application.routes.draw do
   get 'add_to_cart/:id' =>'products#add_to_cart', as: 'add_to_cart'  
   get 'remove_from_cart/:id' =>'products#remove_from_cart', as: 'remove_from_cart'
  
-  get 'customer/create_customer' => 'customer#create_customer', as: 'cust_checkout'
-  
- # get 'customer/create' => 'customer#create', as: 'create'
-  post 'customer/check_form' => 'customer#preview', as: 'create_customer'
- 
-  get 'customer/orders' => 'order#create_order', as: 'order'
-  #get 'customer/create' => 'customer#create_customer', as: 'customer'
+  get 'customer/create_customer' => 'customer#index', as: 'cust_checkout'
+    get 'customer/anything' => 'customer#create_customer', as: 'something'
+  #get 'customer/create' => 'customer#create', as: 'create'vreate_custome
   get 'customer/preview' => 'customer#preview', as:'preview'
+  post 'customer/check_form' => 'customer#preview', as: 'create_customer'
+  post 'customer/qty' => 'customer#qty', as: 'qty'
+ #get 'order/create_order' =>'order#create', as: 'create_order'
+#post 'order/post_order' =>'order#preview', as:'preview'
+ # get 'customer/orders' => 'order#create_order', as: 'order'
+  #get 'customer/create' => 'customer#create_customer', as: 'customer'
+ 
   #post 'customer/create_customer' => 'customer#create_customer', as: 'new_customer'
  # post 'order/create_order' => 'order#create_order', as: 'create_order'
   #get 'products/create_line_item' => 'products#create_line_item', as: 'create_line_item' 

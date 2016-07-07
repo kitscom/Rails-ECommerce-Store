@@ -17,9 +17,9 @@
 
   <%= form_tag radio_results_path, method: :get do %>
       <%= radio_button_tag('status', "New" ) %>
-      <%= label_tag("status_New") %>
+      <%= label_tag("status_New", "New") %>
       <%= radio_button_tag('status', "On Sale") %>
-      <%= label_tag( "status_On Sale") %>
+      <%= label_tag( "status_On_Sale","On Sale") %>
       <%= submit_tag 'Find' %>
  <%end%>
 
