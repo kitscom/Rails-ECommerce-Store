@@ -1,28 +1,29 @@
-<div class = "product">
-  
-  <h2><%= link_to product.name, product%></h2>
-  
-  <% if product.image.present? %>      
-    <div class="product-image"><%=link_to (image_tag product.image.large.url), product%></div>     
-  <% end %>
-  
-  <% if product.description.present? %>    
-    <p class='description'><%= product.description%></p>
-  <% end %> 
 
-  <% if product.price.present? %>
-     <p class = 'price'><%= number_to_currency product.price%></p>  
-  <% end %> 
-
-  <p><%= link_to 'Set as favourite product', save_fav_product_path(product),
-               method: :post%></p>
- 
-<p><%= render :partial =>'shopping', :locals => {:product => product} %></p>
- 
-  <% if session[:favourite_product_id].to_i == product.id %>
-           <!--<p>This is your favourite product</p>-->
-  <% end %>
-
+    <div class = "product">
+     
+        <h2><%= link_to product.name, product%></h2>
+        
+        <% if product.image.present? %>      
+          <div class="product-image"><%=link_to (image_tag product.image.large.url), product%></div>     
+        <% end %>
+        
+        <% if product.description.present? %>    
+          <p class='description'><%= product.description%></p>
+        <% end %> 
+      
+        <% if product.price.present? %>
+           <p class = 'price'><%= number_to_currency product.price%></p>  
+        <% end %> 
+      
+        <p><%= link_to 'Set as favourite product', save_fav_product_path(product),
+                     method: :post%></p>
+       
+      <p><%= render :partial =>'shopping', :locals => {:product => product} %></p>
+       
+        <% if session[:favourite_product_id].to_i == product.id %>
+                 <!--<p>This is your favourite product</p>-->
+        <% end %>
+   
+  
 </div>
-
 

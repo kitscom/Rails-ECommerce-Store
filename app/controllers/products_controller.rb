@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all.order('name DESC').page(params[:page]).per(6)
     @new = Product.status('New').order('name')
+   
+      #@category = Category.find(params[:category_id])
+       @categories = Category.all 
   end
 
   def show
@@ -15,19 +18,39 @@ class ProductsController < ApplicationController
     @page = ContentPage.find(params[:id])
   end
 
+
   def category
     @products = Category.find(params[:id]).products
   end
 
+
+
+  def category_results
+  
+    #@products = Category.find(params[:id]).products
+    #@products =Category.find(params[:category_id])
+    
+     #@products = Product.find(params:[category_id])
+   @products = Category.find(params[:category_id]).products
+    #@products = Product.all
+     #@products =  Category.friendly.find(params[:id])
+   # @products =Product.where (category_id: category_id) if category_id.present?
+     #@category = Category.find(params[:category_id])
+     
+     
+      #@products = Product.category_id(params[:category_id])
+  end
+
   def search_results
-    wildcard_keywords = '%' + params[:search_keywords] + '%'
-    where_category = ' '
-    if params[:category_id].to_i != -1
-      where_category = ' AND category_id = ' + params[:category_id]
-    end
-    @products = Product.where('name LIKE ? OR description LIKE ? ' +
-                              where_category, wildcard_keywords,
+    
+   wildcard_keywords = '%' + params[:search_keywords] + '%'
+   #where_category = ' AND category_id = ' + params[:category_id]
+   
+    @products = Product.where('name LIKE ? OR description LIKE ? ', wildcard_keywords,
                               wildcard_keywords)
+ #  @products =  Product.where(category_id: @category)
+ #@products =Product.where (category_id: category_id) if category_id.present?
+   
   end
 
   def radio_results

@@ -1,27 +1,57 @@
+<nav class = "navbar navbar-inverse ">
+            <div class = "container-fluid>"
+                 <!--logo-->
+                 <div class = "navbar-header">
+                
+                  <button type =  "button" class = "navbar-toggle" data-toggle = "collapse" data-target = ".sideNavBar">
+                    <span class = "icon-bar"></span>
+                     <span class = "icon-bar"></span>
+                      <span class = "icon-bar"></span>
+                  </button>
+                
+                    <a href = "#" class = "navbar-brand"> Search</a>
+                  
+                 </div>                
+             
+                 <div class = "collapse navbar-collapse sideNavBar">
+                
+                 <%= form_tag search_results_path, method: :get do %>
+                  
+                     <h1>Keyword</h1>
+                  
+                      <%= text_field_tag :search_keywords %>
+                    <%=submit_tag 'Search' %>
+                   <%end%>
+                   
+                       <%= form_tag category_results_path, method: :get do %>
+                   
+                     <h1>Category</h1>        
+                 
+                        <!-- <%= select_tag(:category_id, options_for_select([['All',-1],['Soaps', 5], ['Skin Care', 2],
+                                              ['Shaving Care', 7],['Accessories', 6],['Bath Products', 4],
+                                              ['Hair Care', 3]])) %>-->
+                    
+                    <%= select_tag "category_id", options_from_collection_for_select(Category.all, "id", "name"), :include_blank => true%>
+                      <!-- <% @pages.each do |page| %>
+                                     <li ><%= link_to page.name, category_path(page) %></li>                      
+                                <% end %> -->
+                       <%=submit_tag 'Search' %>
+                   <%end%>
+               
+                <h1>Filter </h1>
 
-<aside id = 'search_aside'>
-
-  <%= form_tag search_results_path, method: :get do %>
-   <h1>Search By Keyword</h1>
-
-      <%= text_field_tag :search_keywords %>
-      <%=submit_tag 'Search' %>
-
-   <h1>Search By Category</h1>
-
-   <%= select_tag(:category_id, options_for_select([['All',-1],['Soaps', 5], ['Skin Care', 2],
-                            ['Shaving Care', 7],['Accessories', 6],['Bath Products', 4],
-                            ['Hair Care', 3]])) %>
- <%end%>
-
-    <h1>Filter Products</h1>
-
-  <%= form_tag radio_results_path, method: :get do %>
-      <%= radio_button_tag('status', "New" ) %>
-      <%= label_tag("status_New", "New") %>
-      <%= radio_button_tag('status', "On Sale") %>
-      <%= label_tag( "status_On_Sale","On Sale") %>
-      <%= submit_tag 'Find' %>
- <%end%>
-
- </aside>
+                  <%= form_tag radio_results_path, method: :get do %>
+                      <%= radio_button_tag('status', "New" ) %>
+                      <%= label_tag("status_New", "New") %>
+                      <%= radio_button_tag('status', "On Sale") %>
+                      <%= label_tag( "status_On_Sale","On Sale") %>
+                      
+                     <div>  <%= submit_tag 'Find' %></div>                    
+                       
+                 <%end%>
+                 
+              </div>              
+        
+         </div>         
+         
+      </nav>

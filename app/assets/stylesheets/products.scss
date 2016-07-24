@@ -3,23 +3,28 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $shadow:#4d4d4d;
 $my_shade_of_gray:#e6e6e6;
-$light_gray_back:#4d4d4d;
+$light_gray:#4d4d4d;
 $black: #000000;
 
-body{
-         background: #D2C3C0; 
-}
-    
-.container-fluid {     
-     background: #D2C3C0;      
-     font-style:helvetica;
-     width:100%;
+     html, body { background-color: $light_gray !important; }
        .navbar{
-          background: $black;
+         background: #000;
+             
        }
        .navbar-right{
           padding-right: 2em;
        }
+       /*h1{*/
+       /*   font-size: 12px !important;*/
+       /*}*/
+       @media screen and (min-width: 480px) {
+      h1 {
+        font-size: 22px !important;
+    }
+}
+
+
+
     /*header{*/
         /*background: #e9e2dd;       */
         /*border-radius:2em ;*/
@@ -67,32 +72,97 @@ body{
         /*}      */
     /*}*/
   
-    #search_aside{     
-         border-radius:2em ;
-         background:#E0EFEA ;
-         margin:3em 1em;
-         box-shadow: 1px 1px 1px $black, -1px -1px 1px $black;
-             h1{
-               margin: 10px 10px;
-             }
-          input{
-               margin:5px;
-               padding:5px;
-          }
-     
-    }
+  /*  .sidebar{     */
+  /*      */
+  /*       /*z-index: 1;*/
+  /**/
+  /*height: 100%;*/
+  /*       /*overflow-y: hidden;*/
+  /*     */
+  /*       background:#E0EFEA ;*/
+  /*       border:2px solid red;*/
+  /*       margin-top:3em;*/
+  /*       margin-bottom:3em;*/
+  /*       /**/
+  /*       /*padding:3em auto;*/
+  /*       box-shadow: 1px 1px 1px $black, -1px -1px 1px $black;*/
+  /*           h1{*/
+  /*             /*margin: 10px 10px;*/
+  /*           }*/
+  /*        input{*/
+  /*             margin:5px;*/
+  /*             padding:5px;*/
+  /*        }*/
+  /*        .sidebar2{*/
+  /*             margin-top:3em;*/
+  /*             margin-bottom: 3em;*/
+  /*        }*/
+  /*  }*/
+    /*#page-content-wrapper{*/
+    /*      */
+    /*      /*position:absolute;*/
+    /*      padding:15px;*/
+    /*      border:5px solid green;*/
+    /*      float:right;*/
+    /*}*/
+/*    Change width of sidebar to display it*/
+/*#wrapper.menuDisplayed  #search_aside{*/
+/*     width:250px;*/
+/*}*/
+/*#wrapper.menuDisplayed  #page-content-wrapper{*/
+/*     padding-left:250px;*/
+/*}*/
 
+.container-fluid {     
+     background: #D2C3C0;      
+     /*font-style:helvetica;*/
+     /*width:90%;*/
+     border: 2px solid black;
+     
     .product:last-of-type{clear:right;}
     
-    .product{    
-           border:2px solid gray;
+    .mainNavBar {
+     margin:1em;
+      background: #000;
+    
+      /*line-height: 80px !important;*/
+      /*border:1px solid red;*/
+     
+    }
+    .navbar-inverse{
+     background: #000;
+    }
+    .sideNavBar{
+    float: left;
+      color: #800000;   
+  margin-bottom: 180px;
+   background: #000;
+    select, input:not([type="radio"]){
+               margin:5px;
+               padding:5px;
+               width:80%;
+               height:2em;
+          }
+          
+     input[type="radio"]{
+          margin: 15px;
+     }
+    /*width: 200px;*/
+    /*border: 3px solid #73AD21;*/
+}
+
+    .product{
+    /*margin-left: 206px;*/ 
+
+          border:2px solid gray;
           display:inline-block;
           padding:12px ;
           margin-top:2em;
           margin-right: 2em;
+          margin: 1em;
           width:28%;
           min-width: 300px;       
-          border-radius:2em ;
+          border-radius:1em ;
           background:#ece6da;        
           box-shadow: .1em .1em .4em $black, -.1em -.1em .3em $black;    
         
@@ -113,72 +183,48 @@ body{
                   display: block;
                     margin-left: auto;
                      margin-right: auto;
-                     height: 170px;
-                     
+                     height: 170px;                     
               } 
         .price{
             font:bold 28px calibri;
             margin:10px;
         }       
     }
-    #oneProduct{
-        .product{
-              
-        }        
-    }   
-    #my_products {      
-       border-radius:2em ;
-       background:#E0EFEA ;     
-       box-shadow: 1px 1px 1px $black, -1px -1px 1px $black;
-          h3{
-               margin:15px;
-               padding:5px;
-          }
-          p{
-               margin:15px;
-                padding: 10px 5px;
-          }
-          ul{
-            list-style: none;
-            padding:15px;
-               li{
-                 margin-left:-28px;
-                   
-               }
-               
-           }
-     } 
-     footer{
-         
-       nav{
-         ul{
-         /* border:2px solid red;*/
-          li{
-            margin:8px;
-            padding:5px;
-               a{
-                 color:#8F0047;
-                 text-shadow:1px 1px 1px $shadow;	
-               }
-                 a:hover{
-                     color:black;
-                     transition:.40s;
-                 }
-           }
-          }
-       }   
-     }
-   
+  
+    /*#my_products {      */
+    /*   border-radius:2em ;*/
+    /*   background:#E0EFEA ;     */
+    /*   box-shadow: 1px 1px 1px $black, -1px -1px 1px $black;*/
+    /*      h3{*/
+    /*           margin:15px;*/
+    /*           padding:5px;*/
+    /*      }*/
+    /*      p{*/
+    /*           margin:15px;*/
+    /*            padding: 10px 5px;*/
+    /*      }*/
+    /*      ul{*/
+    /*        list-style: none;*/
+    /*        padding:15px;*/
+    /*           li{*/
+    /*             margin-left:-28px;*/
+    /*               */
+    /*           }*/
+    /*           */
+    /*       }*/
+    /* } */
+footer{
+     clear: both;}
+     
     .form-group{
          margin-top:3em;
          width:90%;
          margin-left:2em;
          
-         .btn{background:gray; border:1px solid black; box-shadow:1px 1px 1px black;}
+         .btn{background:gray; border:5px solid green; box-shadow:1px 1px 1px black;}
     }
   #my_invoice{
-     
-     border:2px solid blue;
+          border:2px solid blue;
   }
 }
 

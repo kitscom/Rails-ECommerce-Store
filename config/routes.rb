@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   
   get "products/:id" => "products#show", constraints:{id:/\d+/}, as: "product"
   
-  get "product/categories/:id" => "products#category", constraints:{id:/\d+/}, as: "category"
+  get "products/categories/:id" => "products#category", constraints:{id:/\d+/}, as: "category"
   
   get "contentpage/:id" => "products#content_page", as: 'link' 
   get 'search_results' => 'products#search_results', as:'search_results'
+  get "products/category_results/category_id" => "products#category_results",  as: "category_results"
+  #get "products/category_results/Cd" => "products#category_results",  as: "category_results"
   get 'radio_results' => 'products#radio_results', as:'radio_results'
  
   post 'favourite_product/:id' =>'products#save_fav_product', as: 'save_fav_product'
@@ -20,7 +22,7 @@ Rails.application.routes.draw do
   get 'remove_from_cart/:id' =>'products#remove_from_cart', as: 'remove_from_cart'
  
   get 'customer/create_customer' => 'customer#index', as: 'cust_checkout'
-    get 'customer/anything' => 'customer#create_customer', as: 'something'
+   get 'customer/anything' => 'customer#create_customer', as: 'something'
   #get 'customer/create' => 'customer#create', as: 'create'vreate_custome
   get 'customer/preview' => 'customer#preview', as:'preview'
   post 'customer/check_form' => 'customer#preview', as: 'create_customer'

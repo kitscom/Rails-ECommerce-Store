@@ -1,35 +1,44 @@
   
       <!--<h1 class = 'storeTitle'> Bath & Company</h1>  -->
        <!--<div class="navigation">  -->
-          <nav class = "navbar navbar-inverse">
+          <nav class = "navbar navbar-inverse ">
             <div class = "container-fluid>"
                  <!--logo-->
-                 <div class = "navbar-header">
+                 <div class = "navbar-header ">
+                
+                  <button type =  "button" class = "navbar-toggle" data-toggle = "collapse" data-target = ".mainNavBar">
+                    <span class = "icon-bar"></span>
+                     <span class = "icon-bar"></span>
+                      <span class = "icon-bar"></span>
+                  </button>
+                
                     <a href = "#" class = "navbar-brand"> Bath & Company</a>
+                     <!--<div><a href = "#" class = "btn btn-sucess" id = "menu-toggle">Toggle Menu </a></div>-->
                  </div>
                  
-            <div>
-                <ul  class = "nav navbar-nav">
-                      <li><%= link_to 'Home', root_path %></li>
-                      <li><%= link_to 'Admin', admin_root_path %></li>
-                          <% @links.each do |page| %>
-                                   <li><%= link_to page.title, link_path(page) %></li>                     
-                           <% end %>     
-                      
-                      <li class = "dropdown">
-                        <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Categories <span class = "caret"</span></a>
-                        <ul class = "dropdown-menu">                             
-                              <% @pages.each do |page| %>
-                                   <li ><%= link_to page.name, category_path(page) %></li>                      
-                              <% end %>             
-                        </ul>
-                      </li>
-                  </ul>
-                <!-- right align-->
-                
+              <div class = "collapse navbar-collapse mainNavBar">
+                  <ul  class = "nav navbar-nav">
+                        <li><%= link_to 'Home', root_path %></li>
+                        <li><%= link_to 'Admin', admin_root_path %></li>
+                            <% @links.each do |page| %>
+                                     <li><%= link_to page.title, link_path(page) %></li>                     
+                             <% end %>     
+                        
+                        <li class = "dropdown">
+                          <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Categories <span class = "caret"</span></a>
+                          <ul class = "dropdown-menu">                             
+                                <% @pages.each do |page| %>
+                                     <li ><%= link_to page.name, category_path(page) %></li>                      
+                                <% end %>             
+                          </ul>
+                        </li>
+                    </ul>
+                  <!-- right align-->
+                  
+                  
                 <ul class = "nav navbar-nav navbar-right">
-                  <li><a href = "#" >Logout</a></li>
-                </ul>
+                    <li><a href = "#" >Log In</a></li>
+                  </ul>
               </div>
          </div>
       </nav>
